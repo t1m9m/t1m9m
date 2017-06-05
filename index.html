@@ -4,10 +4,15 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1.0" name="viewport">
 	<title>t1m9m | Portfolio</title>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
 	<link href="css/materialize.css" media="screen,projection" rel="stylesheet" type="text/css">
 	<link href="css/style.css" media="screen,projection" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="//cdn.materialdesignicons.com/1.9.32/css/materialdesignicons.min.css">
+	
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/init.js"></script>
+    <script src="greensock/TweenMax.min.js"></script>
 </head>
 <body>
     <div class="row">
@@ -15,7 +20,7 @@
             <ul id="slide-out" class="side-nav fixed">
                 <li class="col s12 li_section" style="text-align: center;">
                     <form>
-						<div class="input-field waves-effect waves-light btn black" style="padding: 0 40px 45px 40px">
+						<div class="waves-effect waves-light btn black" style="padding: 0 40px 45px 40px">
 			                <input placeholder="Search" type="text">
 			            </div>
                     </form>
@@ -61,7 +66,6 @@
                 <li class="col s12 li_section">
 					<a class="waves-effect waves-light btn black" href="http://tahsinalam.com" target="_blank">
 						&copy;
-						<?php echo date('Y'); ?> 
 						t1m9m<sup> TM</sup>
 					</a>
                 </li>
@@ -72,45 +76,19 @@
         <div class="col s12 m8 l9">
             <!-- Projects -->
             <div class="section">
-    			<div class="row">
-				<?php
-					$string 	=	file_get_contents("projects.json");
-					$json_data	=	json_decode($string, true);
-					
-					foreach ($json_data as $key => $value):
-				?>
-                    <div class="col s12 m4">
-                        <div class="card green lighten-1">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="<?php echo $value['image']; ?>">
-                            </div>
-                            <div class="card-content white-text">
-                                <span class="card-title">
-									<?php echo $key; ?><i class="material-icons right">more_vert</i>
-                                </span>
-                                <p>
-									<a href="<?php echo $value['url']; ?>" target="_blank">Go Live</a>
-                                </p>
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">
-									<?php echo $key; ?><i class="material-icons right">close</i>
-                                </span>
-                                <p style="text-align: justify"><?php echo $value['description']; ?></p>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-                </div>
+    			<div class="row" id="projects"></div>
     		</div>
         </div>
     </div>
-
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="js/materialize.js"></script>
-	<script src="js/init.js"></script>
-    <script src="greensock/TweenMax.min.js"></script>
-
+    
+    <script>
+		$.getJSON("projects.json", function(json) {
+			for (var i = 0; i < json.length; i++) {
+				$('#projects').append('<div class="col s12 m4"><div class="card green darken-2"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + json[i]['image'] + '"></div><div class="card-content white-text"><span class="card-title">' + json[i]['name'] + '</span><p><a style="color: black" href="' + json[i]['url'] + '" target="_blank">Go Live</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + json[i]['name'] + '<i class="material-icons right">close</i></span><p style="text-align: justify">' + json[i]['description'] + '</p></div></div></div>');
+			}
+		});
+    </script>
+    
     <script>
         // TweenMax.staggerTo(".card", 1, {rotation:360, y:10}, 0.5);
     </script>
