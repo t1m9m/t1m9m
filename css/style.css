@@ -10,17 +10,17 @@
 }
 
 input::-webkit-input-placeholder {
-	color: blue !important;
+	color: black !important;
 }
 
 input:-moz-placeholder { /* Firefox 18- */
-	color: blue !important;
+	color: black !important;
 }
 
 input::-moz-placeholder {  /* Firefox 19+ */
-	color: blue !important;
+	color: black !important;
 }
 
 input:-ms-input-placeholder {
-	color: blue !important;
+	color: black !important;
 }
