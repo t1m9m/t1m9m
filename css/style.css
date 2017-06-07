@@ -24,3 +24,31 @@ input::-moz-placeholder {  /* Firefox 19+ */
 input:-ms-input-placeholder {
 	color: black !important;
 }
+
+@media only screen and (max-width: 600px) {
+	.social-icon {
+		margin-left: -7px;
+		margin-top: 1px;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	.social-icon {
+		margin-left: -7px;
+		margin-top: 1px;
+	}
+}
+
+/*
+@media only screen and (max-width: 992px) {
+  .show-on-medium-and-down {
+    display: block !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .center-on-small-only {
+    text-align: center;
+  }
+}
+*/

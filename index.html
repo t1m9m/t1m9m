@@ -20,32 +20,31 @@
         <div class="col s12 m4 l3">
             <ul id="slide-out" class="side-nav fixed">
 				<li class="col s12 li_section" style="text-align: center;">
-					<!-- <a class="btn tooltipped"  >Hover me!</a> -->
 					<span class="btn-floating waves-effect waves-light black">
 						<a href="https://github.com/t1m9m" target="_blank" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="GitHub">
-							<i class="mdi mdi-github-circle"></i>
+							<i class="mdi mdi-github-circle social-icon"></i>
 						</a>
 					</span>
 					<span class="btn-floating waves-effect waves-light blue darken-2">
 						<a href="https://www.linkedin.com/in/t1m9m/" target="_blank" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="LinkedIn">
-							<i class="mdi mdi-linkedin"></i>
+							<i class="mdi mdi-linkedin social-icon"></i>
 						</a>
 					</span>
 					<span class="btn-floating waves-effect waves-light green">
 						<a href="http://t1m9m.deviantart.com/" target="_blank" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="DeviantArt">
-							<i class="mdi mdi-deviantart"></i>
+							<i class="mdi mdi-deviantart social-icon"></i>
 						</a>
 					</span>
 					<span class="btn-floating waves-effect waves-light red darken-4">
 						<a href="https://www.last.fm/user/t1m9m" target="_blank" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Last.fm">
-							<i class="mdi mdi-lastfm"></i>
+							<i class="mdi mdi-lastfm social-icon"></i>
 						</a>
 					</span>
                 </li>
                 <li class="col s12 li_section" style="text-align: center;">
-                    <form>
+                    <form role="form">
 						<div class="input-field col s12">
-							<input placeholder="Search" type="text">
+							<input placeholder="Search" type="text" id="search">
 						</div>
                     </form>
                 </li>
@@ -64,7 +63,7 @@
 				</li>
                 <li class="col s12 li_section">
 					<a class="waves-effect waves-light btn black" href="http://support.t1m9m.com" target="_blank">
-						<i class="mdi mdi-yin-yang" style="color: white; float: none; margin: 0; font-size: 1rem"></i> Support
+						<i class="mdi mdi-help-circle-outline" style="color: white; float: none; margin: 0; font-size: 1rem"></i> Support
 					</a>
                 </li>
                 <li class="col s12 li_section">
@@ -76,12 +75,9 @@
                 </li>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse">
-<!--
-				<i class="material-icons">menu</i>
--->
-			<span class="btn-floating waves-effect waves-light black">
-			<i class="mdi mdi-reorder-horizontal"></i>
-			</span>
+				<span class="btn-floating waves-effect waves-light black" style="margin-top: 5%; margin-left: 3%;">
+					<i class="mdi mdi-reorder-horizontal"></i>
+				</span>
 			</a>
         </div>
 
@@ -98,6 +94,34 @@
 			for (var i = 0; i < json.length; i++) {
 				$('#projects').append('<div class="col s12 m4"><div class="card green darken-2"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + json[i]['image'] + '"></div><div class="card-content white-text"><span class="card-title">' + json[i]['name'] + '</span><p><a style="color: black" href="' + json[i]['url'] + '" target="_blank">Go Live</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + json[i]['name'] + '<i class="material-icons right">close</i></span><p style="text-align: justify">' + json[i]['description'] + '</p></div></div></div>');
 			}
+		});
+		
+		$(window).load(function(){
+	        $('#search').keyup(function(){
+	            var searchField = $('#search').val();
+	            var regex = new RegExp(searchField, "i");
+	            var output = '<div class="row">';
+	            var count = 1;
+	            $.getJSON('projects.json', function(data) {
+					$.each(data, function(key, val){
+		                if ((val.name.search(regex) != -1) || (val.location.search(regex) != -1)) {
+							output += '<div class="col-md-6 well">';
+							output += '<div class="col-md-3"><img class="img-responsive" src="'+val.avatar+'" alt="'+ val.name +'" /></div>';
+							output += '<div class="col-md-7">';
+							output += '<h5>' + val.name + '</h5>';
+							output += '<p>' + val.location + '</p>'
+							output += '</div>';
+							output += '</div>';
+							if(count%2 == 0){
+								output += '</div><div class="row">'
+							}
+							count++;
+		                }
+					});
+					output += '</div>';
+					$('#results').html(output);
+	            }); 
+	        });
 		});
     </script>
 
