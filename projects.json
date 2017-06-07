@@ -1,14 +1,20 @@
 [
     {
         "name":"Beniasohokola",
-        "image": "projects/beniasohokola.jpg",
+        "image": "projects/logo.jpg",
         "url":"http://beniasohokola.com",
         "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
     },
     {
         "name":"Curriculum Vitae",
-        "image": "projects/beniasohokola.jpg",
+        "image": "projects/favicon.png",
         "url":"http://samihakabir.com",
         "description":"Lorem Ipsum is simply dummy Lorem Ipsum has been the industry."
+    },
+    {
+        "name":"Venus",
+        "image": "projects/venus.png",
+        "url":"http://venus.t1m9m.com",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
     }
 ]
