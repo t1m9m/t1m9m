@@ -7,7 +7,6 @@
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="../css/materialize.css" media="screen,projection" rel="stylesheet" type="text/css">
-	<link href="../css/style.css" media="screen,projection" rel="stylesheet" type="text/css">
 	<link href="../css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
 
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -16,21 +15,66 @@
     <script src="../greensock/TweenMax.min.js"></script>
 </head>
 <body>
-    <div class="row">
-        <div class="col s12 m6">
-          	<div class="card blue-grey darken-1">
-            	<div class="card-content white-text">
+    <div class="row" style="margin: 1.1% 0">
+        <div class="col s12 m6 offset-m3 l6 offset-l3">
+          	<div class="card white">
+            	<div class="card-content black-text">
               		<span class="card-title">Card Title</span>
-              		<p>I am a very simple card. I am good at containing small bits of information.
-              		I am convenient because I require little markup to use effectively.</p>
+              		<p>The quick brown fox jumps over the lazy dog</p>
             	</div>
             	<div class="card-action">
-              		<a href="#">This is a link</a>
-              		<a href="#">This is a link</a>
+        			<form action="#" method="post">
+        				<div class="row">
+	        				<div class="input-field col s12">
+		          				<input placeholder="Email" id="email" type="email" class="validate">
+		          				<label for="email" data-error="wrong" data-success="right">Email</label>
+		        			</div>
+		        			<div class="input-field col s12">
+							    <select>
+							      	<option value="" disabled selected>Choose your option</option>
+							      	<option value="1">Option 1</option>
+							      	<option value="2">Option 2</option>
+							      	<option value="3">Option 3</option>
+							    </select>
+							    <label>Support Type</label>
+							</div>
+							<div class="input-field col s12">
+							    <select>
+							      	<option value="" disabled selected>Choose your option</option>
+							      	<option value="1">Option 1</option>
+							      	<option value="2">Option 2</option>
+							      	<option value="3">Option 3</option>
+							    </select>
+							    <label>Select a Product</label>
+							</div>
+							<div class="input-field col s12">
+		          				<input placeholder="Purchase code" id="code" type="text" class="validate">
+		          				<label for="code" data-error="wrong" data-success="right">Envato Item Purchase Code</label>
+		        			</div>
+		        			<div class="input-field col s12">
+		          				<input placeholder="Subject" id="subject" type="text" class="validate">
+		          				<label for="subject" data-error="wrong" data-success="right">Subject</label>
+		        			</div>
+		        			<div class="input-field col s12">
+					          	<textarea placeholder="Description" id="textarea1" class="materialize-textarea validate"></textarea>
+					          	<label for="textarea1" data-error="wrong" data-success="right">Description</label>
+					        </div>
+					        
+							<div class="input-field col s3">
+								<input type="submit" value="Submit" class="waves-effect waves-light btn btn-large black">
+							</div>
+	      				</div>
+        			</form>
             	</div>
           	</div>
         </div>
     </div>
+
+    <script type="text/javascript">
+    	$(document).ready(function() {
+		    $('select').material_select();
+		});
+    </script>
 
     <script>
         // TweenMax.staggerTo(".card", 1, {rotation:360, y:10}, 0.5);
