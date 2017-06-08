@@ -3,18 +3,21 @@
         "name":"Beniasohokola",
         "image": "projects/logo.jpg",
         "url":"http://beniasohokola.com",
-        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
+        "keywords": "poster, ecommerce"
     },
     {
         "name":"Curriculum Vitae",
         "image": "projects/favicon.png",
         "url":"http://samihakabir.com",
-        "description":"Lorem Ipsum is simply dummy Lorem Ipsum has been the industry."
+        "description":"Lorem Ipsum is simply dummy Lorem Ipsum has been the industry.",
+        "keywords": "online, cv"
     },
     {
         "name":"Venus",
         "image": "projects/venus.png",
         "url":"http://venus.t1m9m.com",
-        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
+        "keywords": "alumni, forum"
     }
 ]

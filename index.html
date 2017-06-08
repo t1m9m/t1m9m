@@ -103,7 +103,7 @@
 	            var count = 1;
 	            $.getJSON('projects.json', function(data) {
 	              	$.each(data, function(key, val){
-	                	if ((val.name.search(regex) != -1) || (val.description.search(regex) != -1)) {
+	                	if ((val.name.search(regex) != -1) || (val.description.search(regex) != -1) || (val.keywords.search(regex) != -1)) {
 	                  		output += '<div class="card green darken-2">';
 	                  		output += '<div class="card-image waves-effect waves-block waves-light"><img class="activator" src="'+ val.image +'"></div>';
 	                  		output += '<div class="card-content white-text">';
