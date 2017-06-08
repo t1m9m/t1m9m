@@ -62,8 +62,8 @@
 					</p>
 				</li>
                 <li class="col s12 li_section">
-					<a class="waves-effect waves-light btn black" href="http://support.t1m9m.com" target="_blank">
-						<i class="mdi mdi-help-circle-outline" style="color: white; float: none; margin: 0; font-size: 1rem"></i> Support
+					<a class="waves-effect waves-light btn black" href="http://t1m9m.dev/support" target="_blank">
+						<i class="mdi mdi-at" style="color: white; float: none; margin: 0; font-size: 1rem"></i>Support
 					</a>
                 </li>
                 <li class="col s12 li_section">
@@ -91,7 +91,7 @@
     <script>
 		$.getJSON("projects.json", function(json) {
 			for (var i = 0; i < json.length; i++) {
-				$('#projects').append('<div class="col s12 m4"><div class="card green darken-2"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + json[i]['image'] + '"></div><div class="card-content white-text"><span class="card-title">' + json[i]['name'] + '</span><p><a style="color: black" href="' + json[i]['url'] + '" target="_blank">Go Live</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + json[i]['name'] + '<i class="material-icons right">close</i></span><p style="text-align: justify">' + json[i]['description'] + '</p></div></div></div>');
+				$('#projects').append('<div class="col s12 m4"><div class="card green darken-2"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + json[i]['image'] + '"></div><div class="card-content white-text"><span class="card-title activator">' + json[i]['name'] + '</span><p><a style="color: black" href="' + json[i]['url'] + '" target="_blank">Go Live</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + json[i]['name'] + '<i class="material-icons right">close</i></span><p style="text-align: justify">' + json[i]['description'] + '</p></div></div></div>');
 			}
 		});
 		
@@ -107,7 +107,7 @@
 	                  		output += '<div class="card green darken-2">';
 	                  		output += '<div class="card-image waves-effect waves-block waves-light"><img class="activator" src="'+ val.image +'"></div>';
 	                  		output += '<div class="card-content white-text">';
-	                  		output += '<span class="card-title">' + val.name + '</span>';
+	                  		output += '<span class="card-title activator">' + val.name + '</span>';
 	                  		output += '<p><a style="color: black" href="' + val.url + '" target="_blank">Go Live</a></p>'
 	                  		output += '</div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + val.name + '<i class="material-icons right">close</i></span>';
 	                  		output += '<p style="text-align: justify">' + val.description + '</p></div></div>';
