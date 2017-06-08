@@ -20,51 +20,63 @@
           	<div class="card white">
             	<div class="card-content black-text">
               		<span class="card-title">Support Form</span>
-              		<p>Fill up the form for support new or existing</p>
             	</div>
             	<div class="card-action">
-        			<form action="#" method="post">
-        				<div class="row">
-	        				<div class="input-field col s12">
-		          				<input placeholder="Email" id="email" type="email" class="validate">
-		          				<label for="email" data-error="wrong" data-success="right">Email</label>
-		        			</div>
-		        			<div class="input-field col s12">
-							    <select>
-							      	<option value="" disabled selected>Choose your option</option>
-							      	<option value="1">Option 1</option>
-							      	<option value="2">Option 2</option>
-							      	<option value="3">Option 3</option>
-							    </select>
-							    <label>Support Type</label>
+					<div class="row">
+						<form action="#" method="post" onsubmit="return validateForm()" name="support_form">
+	        				<div class="row">
+		        				<div class="input-field col s12">
+			          				<input name="email" placeholder="Email" id="email" type="email" class="validate">
+			          				<label for="email" data-error="Value is required.">Email</label>
+			        			</div>
+			        		</div>
+			        		<div class="row">
+								<div class="input-field col s12">
+								    <select id="type" name="type">
+								      	<option value="" disabled selected>Choose your option</option>
+								      	<option value="1">Option 1</option>
+								      	<option value="2">Option 2</option>
+								      	<option value="3">Option 3</option>
+								    </select>
+								    <label for="type" data-error="Value is required.">Support Type</label>
+								</div>
+			        		</div>
+			        		<div class="row">
+								<div class="input-field col s12">
+								    <select id="product" name="product">
+								      	<option value="" disabled selected>Choose your option</option>
+								      	<option value="1">Option 1</option>
+								      	<option value="2">Option 2</option>
+								      	<option value="3">Option 3</option>
+								    </select>
+								    <label for="product" data-error="Value is required.">Select a Product</label>
+								</div>
+			        		</div>
+							<div class="row">
+								<div class="input-field col s12">
+			          				<input placeholder="Purchase code" id="code" type="text" class="validate">
+			          				<label for="code" data-error="Value is required.">Envato Item Purchase Code</label>
+			        			</div>
+							</div>	
+							<div class="row">
+								<div class="input-field col s12">
+			          				<input placeholder="Subject" id="subject" type="text" class="validate">
+			          				<label for="subject" data-error="Value is required.">Subject</label>
+			        			</div>
 							</div>
-							<div class="input-field col s12">
-							    <select>
-							      	<option value="" disabled selected>Choose your option</option>
-							      	<option value="1">Option 1</option>
-							      	<option value="2">Option 2</option>
-							      	<option value="3">Option 3</option>
-							    </select>
-							    <label>Select a Product</label>
-							</div>
-							<div class="input-field col s12">
-		          				<input placeholder="Purchase code" id="code" type="text" class="validate">
-		          				<label for="code" data-error="wrong" data-success="right">Envato Item Purchase Code</label>
-		        			</div>
-		        			<div class="input-field col s12">
-		          				<input placeholder="Subject" id="subject" type="text" class="validate">
-		          				<label for="subject" data-error="wrong" data-success="right">Subject</label>
-		        			</div>
-		        			<div class="input-field col s12">
-					          	<textarea placeholder="Description" id="textarea1" class="materialize-textarea validate"></textarea>
-					          	<label for="textarea1" data-error="wrong" data-success="right">Description</label>
-					        </div>
-					        
-							<div class="input-field col s3">
-								<input type="submit" value="Submit" class="waves-effect waves-light btn black">
-							</div>
-	      				</div>
-        			</form>
+			        		<div class="row">
+								<div class="input-field col s12">
+						          	<textarea placeholder="Description" id="description" class="materialize-textarea validate"></textarea>
+						          	<label for="description" data-error="Value is required.">Description</label>
+						        </div>
+			        		</div>
+							<div class="row">
+								<div class="input-field col s3">
+									<button type="submit" class="waves-effect waves-light btn black">Submit</button>
+								</div>
+		      				</div>
+	        			</form>
+					</div>
             	</div>
           	</div>
         </div>
@@ -74,6 +86,64 @@
     	$(document).ready(function() {
 		    $('select').material_select();
 		});
+		
+		function validateForm() {
+	        var email = document.forms["support_form"]["email"].value;
+	        var atpos = email.indexOf("@");
+	        var dotpos = email.lastIndexOf(".");
+	        if (email == "" || atpos < 1 || dotpos < atpos+2 || dotpos+2 >= email.length) {
+	            $('#email').focus().addClass("invalid");
+	               
+	            return false;
+	        } else {
+				$('#email').removeClass("invalid").addClass("valid");
+	        }
+	        
+	        var type = document.forms["support_form"]["type"].value;
+	        if (type == "") {
+	            $('#type').focus().parent().find('.select-dropdown').removeClass("select-dropdown").addClass("validate invalid");
+	            
+	            return false;
+	        } else {
+				$('#type').parent().find('.validate.invalid').removeClass("invalid").addClass("valid");
+	        }
+	        
+	        var product = document.forms["support_form"]["product"].value;
+	        if (product == "") {
+	            $('#product').focus().parent().find('.select-dropdown').removeClass("select-dropdown").addClass("validate invalid");
+	            
+	            return false;
+	        } else {
+				$('#product').parent().find('.validate.invalid').removeClass("invalid").addClass("valid");
+	        }
+			
+			var code = document.forms["support_form"]["code"].value;
+	        if (code == "") {
+	            $('#code').focus().addClass("invalid");
+	            
+	            return false;
+	        } else {
+				$('#code').removeClass("invalid").addClass("valid");
+	        }
+	        
+	        var subject = document.forms["support_form"]["subject"].value;
+	        if (subject == "") {
+	            $('#subject').focus().addClass("invalid");
+	            
+	            return false;
+	        } else {
+				$('#subject').removeClass("invalid").addClass("valid");
+	        }
+	        
+	        var description = document.forms["support_form"]["description"].value;
+	        if (description == "") {
+	            $('#description').focus().addClass("invalid");
+	            
+	            return false;
+	        } else {
+				$('#description').removeClass("invalid").addClass("valid");
+	        }
+		}
     </script>
 
     <script>

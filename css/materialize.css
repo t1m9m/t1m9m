@@ -3518,7 +3518,7 @@ nav ul a span.badge {
 }
 
 .row .col.offset-s3 {
-  margin-left: 25%;
+  margin-left: 25%;5px
 }
 
 .row .col.pull-s3 {
@@ -5949,7 +5949,6 @@ textarea.materialize-textarea {
   height: 3rem;
   width: 100%;
   font-size: 1rem;
-  margin: 0 0 20px 0;
   padding: 0;
   box-shadow: none;
   box-sizing: content-box;
@@ -6815,7 +6814,6 @@ select {
   line-height: 3rem;
   width: 100%;
   font-size: 1rem;
-  margin: 0 0 20px 0;
   padding: 0;
   display: block;
 }
