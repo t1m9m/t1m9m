@@ -82,7 +82,6 @@
         </div>
 
         <div class="col s12 m8 l9">
-            <!-- Projects -->
             <div class="section">
     			<div class="row" id="projects"></div>
     		</div>
@@ -100,29 +99,25 @@
 	        $('#search').keyup(function(){
 	            var searchField = $('#search').val();
 	            var regex = new RegExp(searchField, "i");
-	            var output = '<div class="row">';
+	            var output = '<div class="col s12 m4">';
 	            var count = 1;
 	            $.getJSON('projects.json', function(data) {
-					$.each(data, function(key, val){
-		                if ((val.name.search(regex) != -1) || (val.location.search(regex) != -1)) {
-							output += '<div class="col-md-6 well">';
-							output += '<div class="col-md-3"><img class="img-responsive" src="'+val.avatar+'" alt="'+ val.name +'" /></div>';
-							output += '<div class="col-md-7">';
-							output += '<h5>' + val.name + '</h5>';
-							output += '<p>' + val.location + '</p>'
-							output += '</div>';
-							output += '</div>';
-							if(count%2 == 0){
-								output += '</div><div class="row">'
-							}
-							count++;
-		                }
-					});
-					output += '</div>';
-					$('#results').html(output);
+	              	$.each(data, function(key, val){
+	                	if ((val.name.search(regex) != -1) || (val.description.search(regex) != -1)) {
+	                  		output += '<div class="card green darken-2">';
+	                  		output += '<div class="card-image waves-effect waves-block waves-light"><img class="activator" src="'+ val.image +'"></div>';
+	                  		output += '<div class="card-content white-text">';
+	                  		output += '<span class="card-title">' + val.name + '</span>';
+	                  		output += '<p><a style="color: black" href="' + val.url + '" target="_blank">Go Live</a></p>'
+	                  		output += '</div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + val.name + '<i class="material-icons right">close</i></span>';
+	                  		output += '<p style="text-align: justify">' + val.description + '</p></div></div>';
+	                  		output += '</div><div class="col s12 m4">'
+	                	}
+	              	});
+	              	$('#projects').html(output);
 	            }); 
 	        });
-		});
+      	});
     </script>
 
     <script>
