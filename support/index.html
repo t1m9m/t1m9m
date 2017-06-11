@@ -19,11 +19,11 @@
         <div class="col s12 m6 offset-m3 l6 offset-l3">
           	<div class="card white">
             	<div class="card-content black-text">
-              		<span class="card-title">Support Form</span>
+              		<span class="card-title" style="margin-left: 1.5%">Support Form</span>
             	</div>
             	<div class="card-action">
 					<div class="row">
-						<form action="#" method="post" onsubmit="return validateForm()" name="support_form">
+						<form action="" id="sendEmail" method="post" onsubmit="return validateForm()" name="support_form">
 	        				<div class="row">
 		        				<div class="input-field col s12">
 			          				<input name="email" placeholder="Email" id="email" type="email" class="validate">
@@ -142,6 +142,41 @@
 				$('#description').removeClass("invalid").addClass("valid");
 	        }
 		}
+
+		$('#sendEmail').on('submit', function() {
+			var express = require('express'),
+			nodemailer = require("nodemailer");
+
+			app = express.createServer();
+
+			app.use(express.bodyParser());
+
+			app.post('/formProcess', function (req, res) {
+			    var data=req.body();
+
+			    var smtpTransport = nodemailer.createTransport("SMTP",{
+			       service: "Gmail", 
+			       auth: {
+			       user: "email@gmail.com",
+			       pass: "gmailPassword"
+			       }});
+
+			   smtpTransport.sendMail({  //email options
+			   from: "Sender Name <email@gmail.com>",
+			   to: "Receiver Name <receiver@email.com>", // receiver
+			   subject: "Emailing with nodemailer", // subject
+			   html: "here your data goes" // body
+			    }, function(error, response){  //callback
+			         if(error){
+			           console.log(error);
+			        }else{
+			           console.log("Message sent: " + res.message);
+			       }
+
+			   smtpTransport.close(); 
+			    }); 
+			});
+		});
     </script>
 
     <script>
