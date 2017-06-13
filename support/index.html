@@ -23,7 +23,7 @@
             	</div>
             	<div class="card-action">
 					<div class="row">
-						<form action="/send" id="send" method="post" onsubmit="return validateForm()" name="support_form">
+						<form action="send.js" id="send" method="post" onsubmit="return validateForm()" name="support_form">
 	        				<div class="row">
 		        				<div class="input-field col s12">
 			          				<input name="email" placeholder="Email" id="email" type="email" class="validate">
@@ -144,37 +144,6 @@
 	        
 	        Materialize.toast('I am a toast!', 4000);
 		}
-
-		var nodemailer = require('nodemailer');
-
-		app.post('/send', function (req, res) {
-		  	var mailOpts, smtpTrans;
-		  	//Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
-		  	smtpTrans = nodemailer.createTransport('SMTP', {
-		      	service: 'Gmail',
-		      	auth: {
-		          	user: "tamim1375@gmail.com",
-		          	pass: "vglmnkttafcoawjj" 
-		      	}
-		  	});
-		  	//Mail options
-		  	mailOpts = {
-		      	from: req.body.name + ' &lt;' + req.body.email + '&gt;', //grab form data from the request body object
-		      	to: 'me@gmail.com',
-		      	subject: 'Website contact form',
-		      	text: req.body.message
-		  	};
-		  	smtpTrans.sendMail(mailOpts, function (error, response) {
-		      	//Email not sent
-		      	if (error) {
-		          	res.render('contact', { title: 'Raging Flame Laboratory - Contact', msg: 'Error occured, message not sent.', err: true, page: 'contact' })
-		      	}
-		      	//Yay!! Email sent
-		      	else {
-		          	res.render('contact', { title: 'Raging Flame Laboratory - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
-		      	}
-		  	});
-		});
     </script>
 
     <script>
