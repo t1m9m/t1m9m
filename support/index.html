@@ -23,7 +23,7 @@
             	</div>
             	<div class="card-action">
 					<div class="row">
-						<form action="send.js" id="send" method="post" onsubmit="return validateForm()" name="support_form">
+						<form action="send.php" id="send" method="post" onsubmit="return validateForm()" name="support_form">
 	        				<div class="row">
 		        				<div class="input-field col s12">
 			          				<input name="email" placeholder="Email" id="email" type="email" class="validate">
@@ -52,19 +52,19 @@
 			        		</div>
 							<div class="row">
 								<div class="input-field col s12">
-			          				<input placeholder="Purchase code" id="code" type="text" class="validate">
+			          				<input name="code" placeholder="Purchase code" id="code" type="text" class="validate">
 			          				<label for="code" data-error="Value is required.">Envato Item Purchase Code</label>
 			        			</div>
 							</div>	
 							<div class="row">
 								<div class="input-field col s12">
-			          				<input placeholder="Subject" id="subject" type="text" class="validate">
+			          				<input name="subject" placeholder="Subject" id="subject" type="text" class="validate">
 			          				<label for="subject" data-error="Value is required.">Subject</label>
 			        			</div>
 							</div>
 			        		<div class="row">
 								<div class="input-field col s12">
-						          	<textarea placeholder="Description" id="description" class="materialize-textarea validate"></textarea>
+						          	<textarea name="description" placeholder="Description" id="description" class="materialize-textarea validate"></textarea>
 						          	<label for="description" data-error="Value is required.">Description</label>
 						        </div>
 			        		</div>
@@ -141,8 +141,6 @@
 	        } else {
 				$('#description').removeClass("invalid").addClass("valid");
 	        }
-	        
-	        Materialize.toast('I am a toast!', 4000);
 		}
     </script>
 
