@@ -23,7 +23,7 @@
             	</div>
             	<div class="card-action">
 					<div class="row">
-						<form action="send.php" id="send" method="post" onsubmit="return validateForm()" name="support_form">
+						<form id="send" method="post" onsubmit="return validateForm()" name="support_form">
 	        				<div class="row">
 		        				<div class="input-field col s12">
 			          				<input name="email" placeholder="Email" id="email" type="email" class="validate">
@@ -141,6 +141,15 @@
 	        } else {
 				$('#description').removeClass("invalid").addClass("valid");
 	        }
+
+	        $.ajax({
+           		type: "POST",
+           		url: "send.php",
+           		data: $("#send").serialize(),
+           		success: function(){}
+         	});
+
+         	Materialize.toast('Thank you, We will get back to you ASAP', 4000);
 		}
     </script>
 
