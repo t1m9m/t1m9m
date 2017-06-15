@@ -23,7 +23,7 @@
             	</div>
             	<div class="card-action">
 					<div class="row">
-						<form id="send" method="post" onsubmit="return validateForm()" name="support_form">
+						<form id="send" method="post" onsubmit="return validateForm()" name="support_form" autocomplete="off">
 	        				<div class="row">
 		        				<div class="input-field col s12">
 			          				<input name="email" placeholder="Email" id="email" type="email" class="validate">
@@ -34,8 +34,8 @@
 								<div class="input-field col s12">
 								    <select id="type" name="type">
 								      	<option value="" disabled selected>Choose your option</option>
-								      	<option value="envato">Envato item support</option>
-								      	<option value="custom">Custom project development order</option>
+								      	<option value="Envato">Envato item support</option>
+								      	<option value="Custom">Custom project development order</option>
 								    </select>
 								    <label for="type" data-error="Value is required.">Support Type</label>
 								</div>
@@ -44,8 +44,8 @@
 								<div class="input-field col s12">
 								    <select id="product" name="product">
 								      	<option value="" disabled selected>Choose your option</option>
-								      	<option value="venus">Venus</option>
-								      	<option value="mars">Mars</option>
+								      	<option value="Venus">Venus</option>
+								      	<option value="Mars">Mars</option>
 								    </select>
 								    <label for="product" data-error="Value is required.">Select a Product</label>
 								</div>
@@ -68,7 +68,7 @@
 						          	<label for="description" data-error="Value is required.">Description</label>
 						        </div>
 			        		</div>
-							<div class="row">
+							<div class="row" style="margin-bottom: 10px;">
 								<div class="input-field col s3">
 									<button type="submit" class="waves-effect waves-light btn black">Submit</button>
 								</div>
