@@ -23,7 +23,7 @@
     {
         "name":"CCSL",
         "image": "projects/ccsl.png",
-        "url":"http://ccsl.pechasgamestudios.com",
+        "url":"http://pechasgamestudios.com/ccsl/",
         "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
         "keywords": "game, cricket, android"
     },
@@ -43,7 +43,7 @@
     },
     {
         "name":"GradNet",
-        "image": "projects/gradnet.png",
+        "image": "projects/gradnet.jpg",
         "url":"http://gradnet.work",
         "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
         "keywords": "alumni, customer, service"
@@ -58,14 +58,14 @@
     {
         "name":"E-commerce",
         "image": "projects/wholesale.png",
-        "url":"http://wholesale.eorder.com",
+        "url":"http://wholesale.eorder.com.bd",
         "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
         "keywords": "ecommerce, stl, gp, sales"
     },
     {
         "name":"POS",
         "image": "projects/pos.png",
-        "url":"http://pos.eorder.com",
+        "url":"http://pos.eorder.com.bd",
         "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
         "keywords": "pos, stl, gp, sales"
     }
