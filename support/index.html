@@ -106,20 +106,20 @@
 	        }
 	        
 	        var product = document.forms["support_form"]["product"].value;
-	        if (product == "" && type == 'envato') {
+	        if (product == "" && type == 'Envato') {
 	            $('#product').focus().parent().find('.select-dropdown').removeClass("select-dropdown").addClass("validate invalid");
 	            
 	            return false;
-	        } else if (product && type == 'envato') {
+	        } else if (product && type == 'Envato') {
 				$('#product').parent().find('.validate.invalid').removeClass("invalid").addClass("valid");
 	        }
 			
 			var code = document.forms["support_form"]["code"].value;
-	        if (code == ""  && type == 'envato') {
+	        if (code == ""  && type == 'Envato') {
 	            $('#code').focus().addClass("invalid");
 	            
 	            return false;
-	        } else if (code && type == 'envato') {
+	        } else if (code && type == 'Envato') {
 				$('#code').removeClass("invalid").addClass("valid");
 	        }
 	        

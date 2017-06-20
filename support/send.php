@@ -15,7 +15,7 @@ $mail->addReplyTo($_POST['email']);
 $mail->addAddress('t1m9m.com@gmail.com');
 $mail->isHTML(true);
 $mail->Subject 		= 	$_POST['subject'];
-if (isset($_POST['product']) && $_POST['code']) {
+if (isset($_POST['product']) && isset($_POST['code'])) {
 	$mail->Body    	= 	'<b>Support Type</b>: ' . $_POST['type'] . '<br><br><b>Product</b>: ' .  $_POST['product'] . '<br><b>Purchase Code</b>: ' . $_POST['code'] . '<br><b>Description</b>: ' . $_POST['description'];
 } else {
 	$mail->Body    	= 	'<b>Support Type</b>: ' . $_POST['type'] . '<br><b>Description</b>: ' . $_POST['description'];
