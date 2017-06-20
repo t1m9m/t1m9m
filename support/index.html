@@ -22,7 +22,7 @@
             	</div>
             	<div class="card-action">
 					<div class="row">
-						<form id="send" method="post" onsubmit="return validateForm()" name="support_form" autocomplete="off">
+						<form id="send" method="post" onsubmit="return validateForm()" name="support_form">
 	        				<div class="row">
 		        				<div class="input-field col s12">
 			          				<input name="email" placeholder="Email" id="email" type="email" class="validate">
@@ -145,10 +145,12 @@
            		type: "POST",
            		url: "send.php",
            		data: $("#send").serialize(),
-           		success: function(){}
+           		success: function(response){
+           			Materialize.toast(response, 4000);
+           		}
          	});
 
-         	Materialize.toast('Thank you, We will get back to you ASAP', 4000);
+         	return false;
 		}
     </script>
 </body>

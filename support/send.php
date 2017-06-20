@@ -15,6 +15,8 @@ $mail->addReplyTo($_POST['email']);
 $mail->addAddress('t1m9m.com@gmail.com');
 $mail->isHTML(true);
 $mail->Subject 		= 	$_POST['subject'];
-$mail->Body    		= 	'<b>Support Type</b>: ' . $_POST['type'] . '<br><br><b>Product</b>: ' . $_POST['product'] . '<br><b>Purchase Code</b>: ' . $_POST['code'] . '<br><b>Description</b>: ' . $_POST['description'];
+$mail->Body    		= 	'<b>Support Type</b>: ' . $_POST['type'] . '<br><br><b>Product</b>: ' . if (isset($_POST['product'])) $_POST['product'] . '<br><b>Purchase Code</b>: ' . if (isset($_POST['code'])) $_POST['code'] . '<br><b>Description</b>: ' . $_POST['description'];
 
-$mail->send();
+// $mail->send();
+
+echo "Your Message successfully sent, we will get back to you ASAP.";
