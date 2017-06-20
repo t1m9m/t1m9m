@@ -147,6 +147,7 @@
            		data: $("#send").serialize(),
            		success: function(response){
            			Materialize.toast(response, 4000);
+           			setTimeout(function(){ location.reload(); }, 4200);
            		}
          	});
 
