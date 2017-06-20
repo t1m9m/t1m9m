@@ -88,7 +88,7 @@
     <script>
 		$.getJSON("projects.json", function(json) {
 			for (var i = 0; i < json.length; i++) {
-				$('#projects').append('<div class="col s12 m4"><div class="card teal lighten-1"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + json[i]['image'] + '"></div><div class="card-content white-text"><span class="card-title activator">' + json[i]['name'] + '</span><p><a style="color: black" href="' + json[i]['url'] + '" target="_blank">Go Live</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + json[i]['name'] + '<i class="material-icons right">close</i></span><p style="text-align: justify">' + json[i]['description'] + '</p></div></div></div>');
+				$('#projects').append('<div class="col s12 m4"><div class="card blue-grey"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + json[i]['image'] + '"></div><div class="card-content white-text"><span class="card-title activator">' + json[i]['name'] + '</span><p><a style="color: black" href="' + json[i]['url'] + '" target="_blank">Go Live</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + json[i]['name'] + '<i class="material-icons right">close</i></span><p style="text-align: justify">' + json[i]['description'] + '</p></div></div></div>');
 			}
 		});
 		
@@ -101,7 +101,7 @@
 	            $.getJSON('projects.json', function(data) {
 	              	$.each(data, function(key, val){
 	                	if ((val.name.search(regex) != -1) || (val.description.search(regex) != -1) || (val.keywords.search(regex) != -1)) {
-	                  		output += '<div class="card teal lighten-1">';
+	                  		output += '<div class="card blue-grey">';
 	                  		output += '<div class="card-image waves-effect waves-block waves-light"><img class="activator" src="'+ val.image +'"></div>';
 	                  		output += '<div class="card-content white-text">';
 	                  		output += '<span class="card-title activator">' + val.name + '</span>';
