@@ -44,7 +44,7 @@
     {
         "name":"GradNet",
         "image": "projects/gradnet.jpg",
-        "url":"http://gradnet.work",
+        "url":"http://grad.network",
         "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
         "keywords": "alumni, customer, service"
     },
@@ -68,5 +68,19 @@
         "url":"http://pos.eorder.com.bd",
         "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
         "keywords": "pos, stl, gp, sales"
+    },
+    {
+        "name":"Curriculum Vitae",
+        "image": "projects/samihakabir.png",
+        "url":"http://samihakabir.com",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
+        "keywords": "cv, online, great, samiha"
+    },
+    {
+        "name":"Mars",
+        "image": "projects/mars.png",
+        "url":"http://mars.t1m9m.com",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
+        "keywords": "hospital, management, system, medical, medicine, doctor"
     }
 ]
