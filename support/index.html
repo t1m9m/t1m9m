@@ -5,18 +5,18 @@
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1.0" name="viewport">
 	<title>t1m9m | Support</title>
 
-	<link rel="icon" href="../logo.png" type="image/*">
+	<link rel="icon" href="http://t1m9m.dev/logo.png" type="image/*">
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="../css/materialize.css" media="screen,projection" rel="stylesheet" type="text/css">
-	<link href="../css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
+	<link href="http://t1m9m.dev//css/materialize.css" rel="stylesheet" type="text/css">
+	<link href="http://t1m9m.dev//css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
 
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="../materialize.js"></script>
-	<script src="../js/init.js"></script>
+	<script src="http://t1m9m.dev//js/materialize.js"></script>
+	<script src="http://t1m9m.dev//js/init.js"></script>
 </head>
 <body>
-    <div class="row" style="margin: 1.5% 0">
+    <div class="row" style="margin: 1.5% 0 0 0">
         <div class="col s12 m6 offset-m3 l6 offset-l3">
           	<div class="card white">
             	<div class="card-content black-text">
@@ -27,7 +27,7 @@
 						<form id="send" method="post" onsubmit="return validateForm()" name="support_form">
 	        				<div class="row">
 		        				<div class="input-field col s12">
-			          				<input name="email" placeholder="Email" id="email" type="email" class="validate">
+			          				<input name="email" placeholder="Your email address" id="email" type="email" class="validate">
 			          				<label for="email" data-error="Value is required.">Email</label>
 			        			</div>
 			        		</div>
@@ -36,9 +36,10 @@
 								    <select id="type" name="type">
 								      	<option value="" disabled selected>Choose your option</option>
 								      	<option value="Envato">Envato item support</option>
-								      	<option value="Custom">Custom project development order</option>
+								      	<option value="EnvatoCustom">Envato item custom development</option>
+								      	<option value="Custom">Custom project development</option>
 								    </select>
-								    <label for="type" data-error="Value is required.">Support Type</label>
+								    <label for="type" data-error="Value is required.">Support type</label>
 								</div>
 			        		</div>
 			        		<div class="row">
@@ -46,30 +47,30 @@
 								    <select id="product" name="product">
 								      	<option value="" disabled selected>Choose your option</option>
 								      	<option value="Venus">Venus</option>
-								      	<option value="Mars">Mars</option>
 								    </select>
-								    <label for="product" data-error="Value is required.">Select a Product</label>
+								    <label for="product" data-error="Value is required.">Select product</label>
 								</div>
 			        		</div>
 							<div class="row">
 								<div class="input-field col s12">
 			          				<input name="code" placeholder="Purchase code" id="code" type="text" class="validate">
-			          				<label for="code" data-error="Value is required.">Envato Item Purchase Code</label>
+			          				<label for="code" data-error="Value is required.">Envato item purchase code</label>
 			        			</div>
-							</div>	
+							</div>
+							<span style="display: none">http://marketplace.envato.com/api/edge/[USERNAME]/[API-KEY]/verify-purchase:[PURCHASE_KEY].json</span>
 							<div class="row">
 								<div class="input-field col s12">
-			          				<input name="subject" placeholder="Subject" id="subject" type="text" class="validate">
+			          				<input name="subject" placeholder="Write subject" id="subject" type="text" class="validate">
 			          				<label for="subject" data-error="Value is required.">Subject</label>
 			        			</div>
 							</div>
 			        		<div class="row">
 								<div class="input-field col s12">
-						          	<textarea name="description" placeholder="Description" id="description" class="materialize-textarea validate"></textarea>
+						          	<textarea name="description" placeholder="Brief description" id="description" class="materialize-textarea validate"></textarea>
 						          	<label for="description" data-error="Value is required.">Description</label>
 						        </div>
 			        		</div>
-							<div class="row" style="margin-bottom: 10px;">
+							<div class="row" style="margin-bottom: 5px;">
 								<div class="input-field col s3">
 									<button type="submit" class="waves-effect waves-light btn black">Submit</button>
 								</div>
@@ -92,7 +93,7 @@
 	        var dotpos = email.lastIndexOf(".");
 	        if (email == "" || atpos < 1 || dotpos < atpos+2 || dotpos+2 >= email.length) {
 	            $('#email').focus().addClass("invalid");
-	               
+	            
 	            return false;
 	        } else {
 				$('#email').removeClass("invalid").addClass("valid");
@@ -108,11 +109,11 @@
 	        }
 	        
 	        var product = document.forms["support_form"]["product"].value;
-	        if (product == "" && type == 'Envato') {
+	        if ((product == "" && type == 'Envato') || (product == "" && type == 'EnvatoCustom')) {
 	            $('#product').focus().parent().find('.select-dropdown').removeClass("select-dropdown").addClass("validate invalid");
 	            
 	            return false;
-	        } else if (product && type == 'Envato') {
+	        } else if ((product && type == 'Envato') || (product && type == 'EnvatoCustom')) {
 				$('#product').parent().find('.validate.invalid').removeClass("invalid").addClass("valid");
 	        }
 			
@@ -148,8 +149,8 @@
            		url: "send.php",
            		data: $("#send").serialize(),
            		success: function(response){
-           			Materialize.toast(response, 4000);
-           			setTimeout(function(){ location.reload(); }, 4200);
+           			Materialize.toast(response, 5000);
+           			setTimeout(function(){ location.reload(true); }, 6000);
            		}
          	});
 
