@@ -52,7 +52,7 @@
                 </li>
                 <li class="col s12 li_section" style="line-height: 22px; text-align: justify;">
 					<p style="padding: 0 15px">
-						Tahsin Alam is a freelancer from Dhaka. He studied 
+						Tahsin Alam is a freelancer from Dhaka, Bangladesh. He studied 
 						Computer Science and Engineering at BRAC University, 
 						following his ardent passion for coding. Tahsin was a member 
 						of TrillionPixel, a team that won the Champion trophy in 
@@ -71,8 +71,8 @@
                 <li class="col s12 li_section">
 					<a style="text-align: center" href="http://tahsinalam.com" target="_blank">
 						&copy;
-						2017
-						t1m9m<sup> TM</sup>
+						t1m9m
+						<span id="y"></span>
 					</a>
                 </li>
             </ul>
@@ -120,6 +120,9 @@
 	            }); 
 	        });
       	});
+      	
+      	var d = new Date();
+		document.getElementById("y").innerHTML = d.getFullYear();
     </script>
 </body>
 </html>
