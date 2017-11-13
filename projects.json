@@ -75,12 +75,5 @@
         "url":"http://samihakabir.com",
         "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
         "keywords": "cv, online, great, samiha"
-    },
-    {
-        "name":"Mars",
-        "image": "projects/mars.png",
-        "url":"http://mars.t1m9m.com",
-        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
-        "keywords": "hospital, management, system, medical, medicine, doctor"
     }
 ]
